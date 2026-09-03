@@ -6,12 +6,10 @@ const app= express();
 
 const port =1027;
 
+app.use(express.json())
+
 app.post("/signup",async(req,res)=>{
-   const user = new User({
-    name:"Virat Kholi",
-    emailId:"virat@gmail.com",
-    password:"Virat@123"
-   });
+   const user = new User(req.body);
    try{
     await user.save();
    res.send("User added successfully")
@@ -19,6 +17,16 @@ app.post("/signup",async(req,res)=>{
     res.status(400).send("Error saving the user:"+ err.message)
    }
    
+})
+
+app.get("/user",async(req,res)=>{
+    const userEmail= req.body.emailId;
+    try{
+        const users = await User.find({emailId:userEmail})
+        res.send(users)
+    }catch(err){
+        res.status(400).send("Something went wrong" + err.message)
+    }
 })
 
 app.get("/login",(req,res)=>{
