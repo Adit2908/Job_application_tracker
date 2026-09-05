@@ -5,11 +5,15 @@ const userSchema= new mongoose.Schema({
         type:String,
         required:true,
         trim:true,
+        minLength:3,
+        maxLength:50
     },
     lastName:{
         type:String,
         required:true,
         trim:true,
+        minLength:3,
+        maxLength:50
     },
     emailId:{
         type:String,
@@ -17,6 +21,11 @@ const userSchema= new mongoose.Schema({
         unique:true,
         lowercase:true,
         trim:true,
+        validate:{
+            validator: function(v){
+
+            }
+        }
     },
     password:{
         type:String,

@@ -52,5 +52,10 @@ Tasks / Reminders
 
  - Add the express.json middleware to your app
  - Make your signup api dynamic to recceive data from the end user
- - Data Sanitization
+ - Explore schematype option from the documentation
+ - add required ,unique,minLength,maxLength,trim
+ - Add default
+ - Install validator package from npm to add 
+ validation to email,passwors and photourl
+ - Improve the db schema and put all required validation
  

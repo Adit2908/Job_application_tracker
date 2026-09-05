@@ -9,6 +9,10 @@ const port =1027;
 app.use(express.json())
 
 app.post("/signup",async(req,res)=>{
+    //Validation of data
+
+    //encryption of the password
+
    const user = new User(req.body);
    try{
     await user.save();
