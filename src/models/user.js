@@ -1,4 +1,10 @@
 import mongoose from 'mongoose'
+import isEmail from 'validator/lib/isEmail.js';
+import isStrongPassword from 'validator/lib/isStrongPassword.js';
+import isURL from 'validator/lib/isURL.js';
+
+
+
 
 const userSchema= new mongoose.Schema({
     firstName:{
@@ -21,15 +27,21 @@ const userSchema= new mongoose.Schema({
         unique:true,
         lowercase:true,
         trim:true,
-        validate:{
-            validator: function(v){
-
+        validate(value){
+            if(!isEmail(value)){
+                throw new Error("Invalid email address:" + value)
             }
         }
+       
     },
     password:{
         type:String,
         required:true,
+        validate(value){
+            if(!isStrongPassword(value)){
+                throw new Error("Invalid Password: " + value)
+            }
+        }
     },
     role:{
         type:String,
@@ -40,6 +52,11 @@ const userSchema= new mongoose.Schema({
     profilePicture:{
         type:String,
         default:"",
+        validate(value){
+            if(isURL(value)){
+                throw new Error("Invalid Photo URL: " + value)
+            }
+        }
     },
     location:{
         type:String,

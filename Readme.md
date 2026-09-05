@@ -58,4 +58,5 @@ Tasks / Reminders
  - Install validator package from npm to add 
  validation to email,passwors and photourl
  - Improve the db schema and put all required validation
+ - Added some validator like isEmail,isPassword,isUrl to my Schema
  
