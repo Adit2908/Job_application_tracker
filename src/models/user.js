@@ -4,8 +4,6 @@ import isStrongPassword from 'validator/lib/isStrongPassword.js';
 import isURL from 'validator/lib/isURL.js';
 
 
-
-
 const userSchema= new mongoose.Schema({
     firstName:{
         type:String,

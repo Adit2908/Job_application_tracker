@@ -59,4 +59,9 @@ Tasks / Reminders
  validation to email,passwors and photourl
  - Improve the db schema and put all required validation
  - Added some validator like isEmail,isPassword,isUrl to my Schema
+ - Validate data in signup api
+ - Install bcrypt library
+ - create passwordHash using bcrypt.hash and save the encrypted password
+ - Create a login Api
+ - Take email and password from req.body and compare it using bcrypt.compare
  
