@@ -64,4 +64,8 @@ Tasks / Reminders
  - create passwordHash using bcrypt.hash and save the encrypted password
  - Create a login Api
  - Take email and password from req.body and compare it using bcrypt.compare
+ - Install jsonwebtoken
+ - In login api after email and password validation create a jwt token and send it back to the userAuth middleware
+ - Create userSchema  method to getJWT()
+ - Create UserSchema  method to validate password
  
