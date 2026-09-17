@@ -69,3 +69,7 @@ Tasks / Reminders
  - Create userSchema  method to getJWT()
  - Create UserSchema  method to validate password
  
+ 
+ - Explore job tracker apis
+ - Create a list of apis you can think of
+ - group multiple routes under respective routes
