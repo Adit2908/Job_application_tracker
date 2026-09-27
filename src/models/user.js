@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import isEmail from "validator/lib/isEmail.js";
 import isStrongPassword from "validator/lib/isStrongPassword.js";
 import isURL from "validator/lib/isURL.js";
+import jwt from "jsonwebtoken"
 import bcrypt from "bcrypt"
 
 const userSchema = new mongoose.Schema(
@@ -78,6 +79,7 @@ userSchema.methods.getJWT = async function () {
   const token = await jwt.sign({ _id: user._id }, "JOB@Tracker$790", {
     expiresIn: "30d",
   });
+  return token;
 };
 
 userSchema.methods.validatePassword = async function (passwordInputByUser) {

@@ -73,3 +73,6 @@ Tasks / Reminders
  - Explore job tracker apis
  - Create a list of apis you can think of
  - group multiple routes under respective routes
+
+- Create a jobapplicationSchema and jobApplication Model
+- create a post application api

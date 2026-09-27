@@ -1,6 +1,7 @@
 import express from "express";
 import validateSignUpData from "../utils/validation.js";
 import bcrypt from "bcrypt"
+import userAuth from "../middlewares/authentication.js"
 import User from "../models/user.js";
 
 const authRouter=express.Router();
@@ -57,6 +58,20 @@ authRouter.post("/login", async (req, res) => {
     }
   } catch (err) {
     res.status(400).send("Err:" + err.message);
+  }
+});
+
+authRouter.post("/logout",(req,res)=>{
+res.cookie("token",null,{expires:new Date(Date.now())})
+res.send("Logout successful")
+})
+
+authRouter.get("/profile", userAuth, async (req, res) => {
+  try {
+    const user = await req.user;
+    res.send(user);
+  } catch (err) {
+    res.status(400).send("ERROR:" + err.message);
   }
 });
 
