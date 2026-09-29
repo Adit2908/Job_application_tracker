@@ -75,4 +75,4 @@ Tasks / Reminders
  - group multiple routes under respective routes
 
 - Create a jobapplicationSchema and jobApplication Model
-- create a post application api
+- create a post application api, getapplication by id and getAllapplication
