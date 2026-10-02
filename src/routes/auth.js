@@ -1,5 +1,5 @@
 import express from "express";
-import validateSignUpData from "../utils/validation.js";
+import {validateSignUpData} from "../utils/validation.js";
 import bcrypt from "bcrypt"
 import userAuth from "../middlewares/authentication.js"
 import User from "../models/user.js";

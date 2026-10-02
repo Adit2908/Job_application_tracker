@@ -76,3 +76,4 @@ Tasks / Reminders
 
 - Create a jobapplicationSchema and jobApplication Model
 - create a post application api, getapplication by id and getAllapplication
+- created a updatedApplication and deleteApplication

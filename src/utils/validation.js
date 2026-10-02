@@ -14,4 +14,15 @@ const validateSignUpData = (req) => {
   }
 };
 
-export default validateSignUpData;
+const validateEditData=(req)=>{
+  const allowedFields=["companyName","jobTitle","jobUrl","location","jobType","appliedDate","salary","notes","interviewDate"];
+  const isEditAllowed= Object.keys(req.body).every((field)=>
+    allowedFields.includes(field)
+  )
+
+  return isEditAllowed;
+
+  
+}
+
+export {validateSignUpData,validateEditData};
