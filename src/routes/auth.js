@@ -66,7 +66,7 @@ res.cookie("token",null,{expires:new Date(Date.now())})
 res.send("Logout successful")
 })
 
-authRouter.get("/profile", userAuth, async (req, res) => {
+authRouter.get("/me", userAuth, async (req, res) => {
   try {
     const user = await req.user;
     res.send(user);

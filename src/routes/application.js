@@ -52,6 +52,7 @@ applicationRouter.get("/getAllapplication", userAuth, async (req, res) => {
     const application = await JobApplication.find();
     res.json({
       message: "All appplication fetched successfully",
+      count:application.length,
       application,
     });
   } catch (err) {

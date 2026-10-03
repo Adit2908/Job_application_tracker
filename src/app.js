@@ -3,6 +3,7 @@ import connectDB from "./config/database.js";
 import cookieParser from "cookie-parser";
 import authRouter from "./routes/auth.js";
 import applicationRouter from "./routes/application.js"
+import dashboardRouter from "./routes/dashboard.js";
 const app = express();
 
 const port = 1027;
@@ -11,6 +12,7 @@ app.use(cookieParser());
 
 app.use("/",authRouter);
 app.use("/",applicationRouter)
+app.use("/",dashboardRouter)
 
 
 

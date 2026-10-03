@@ -4,8 +4,8 @@ const applicationSchema = new mongoose.Schema(
   {
     userId: {
       type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
       required: true,
-      
     },
 
     companyName: {
@@ -28,14 +28,13 @@ const applicationSchema = new mongoose.Schema(
     },
     jobType: {
       type: String,
-      enum: [
-        "Applied",
-        "Screening",
-        "Interview",
-        "Offer",
-        "Rejected",
-        "withDrawn",
-      ],
+      enum: ["Full-time", "Part-time", "Internship", "Contract"],
+      default: "Full-time",
+    },
+
+    status: {
+      type: String,
+      enum: ["Applied", "OA", "Interview", "Rejected", "Selected"],
       default: "Applied",
     },
     appliedDate: {
@@ -63,9 +62,6 @@ applicationSchema.index(
   { unique: true },
 );
 
-
 const JobApplication = mongoose.model("Application", applicationSchema);
 
 export default JobApplication;
-
-
