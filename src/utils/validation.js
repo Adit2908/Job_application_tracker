@@ -15,7 +15,7 @@ const validateSignUpData = (req) => {
 };
 
 const validateEditData=(req)=>{
-  const allowedFields=["companyName","jobTitle","jobUrl","location","jobType","appliedDate","salary","notes","interviewDate"];
+  const allowedFields=["companyName","jobTitle","jobUrl","location","status","jobType","appliedDate","salary","notes","interviewDate"];
   const isEditAllowed= Object.keys(req.body).every((field)=>
     allowedFields.includes(field)
   )
