@@ -54,27 +54,39 @@ dashboardRouter.get("/stats", userAuth, async (req, res) => {
   }
 });
 
-dashboardRouter.get("analytics",userAuth,async(req,res)=>{
-    try{
-        const userId= req.user._id;
+dashboardRouter.get("/analytics", userAuth, async (req, res) => {
+  try {
+    const userId = req.user._id;
 
-      const analytics= await JobApplication.aggregate([
-        {
-            $match:{userId}
+    const analytics = await JobApplication.aggregate([
+      {
+        $match: { userId },
+      },
+      {
+        $group: {
+          _id: "$status",
+          count: {
+            $sum: 1,
+          },
         },
-        {
-            $group:{
-                _id:"$status",
-                count:{
-                    $sum:1
-                }
-            }
-        }
-      ])
-      res.status(200).send(analytics);
-    }catch(err){
-        res.status(400).send("ERROR : "+ err.message)
-    }
-})
+      },
+      {
+        $project: {
+          _id: 0,
+          status: "$_id",
+          count: 1,
+        },
+      },
+      {
+        $sort: {
+          count: -1,
+        },
+      },
+    ]);
+    res.status(200).send(analytics);
+  } catch (err) {
+    res.status(400).send("ERROR : " + err.message);
+  }
+});
 
 export default dashboardRouter;

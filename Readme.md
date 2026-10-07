@@ -38,6 +38,18 @@ Tasks / Reminders
 ├── PATCH /api/tasks/:id
 └── DELETE /api/tasks/:id
 
+\*\* if you want to find a user by a mame you have to just do db.collectionName.find({name:"ABC"}) -- ab.users.find({firstName:"Mohan"})
+
+\*\*if you want to get someOne changes to github you will write git pull <remote  name> <branch name>
+
+if you are pulling changes into your main branch,you will always write
+    git pull origin main
+
+
+ if you are already on your current brach and it is properly linked (tracked to github),you can usually just type a shortcut - git pull 
+
+if you are already on your github 
+
 # Procedure
 
 - Create a configuration file using npm init
@@ -77,9 +89,13 @@ Tasks / Reminders
 - Create a jobapplicationSchema and jobApplication Model
 - create a post application api, getapplication by id and getAllapplication
 - created a updatedApplication and deleteApplication
-- create a dashboard for dashboard stats
 
-  aggregate:- Aggregation operaions processes multiple documents and return computed results.You can use aggregation operations to:
+- create a dashboard.js route for dashboard stats and dashboard stats
+- In this we will aggregate method to process multiple document
+- $match{userId} will explain that the particular user will contain what type of document
+
+
+- aggregate:- Aggregation operaions processes multiple documents and return computed results.You can use aggregation operations to:
   - Group value from multiple documents.
   - Compute a single result from the grouped data
   - Analyze data change over time
@@ -116,5 +132,9 @@ Tasks / Reminders
     $cond- Evaluates a boolean expression to return one of the two specified return expressions.
 
     $eq- compares two values and returns:
-        *  true when the values are equivalent
-        *false when the values are not equivalent
+    * true when the values are equivalent
+    *false when the values are not equivalent
+
+    $project- Passes the document with the requested fields to the next stage in the pipeline.The specified fields can be existing fields from the input documents or new computed fields.
+
+    $sort - Sorts all input documents and returns them to the pipeline in sorted order
