@@ -39,21 +39,7 @@ Tasks / Reminders
 └── DELETE /api/tasks/:id
 
 
-userId:mongoose.Schema.Types.ObjectId means
 
-In Mongoose, writing userId: mongoose.Schema.Types.ObjectId inside a schema definition means you are explicitly telling MongoDB that this field must store a unique 12-byte binary identifier (an ObjectId), rather than a standard text string.
-
-\*\* if you want to find a user by a mame you have to just do db.collectionName.find({name:"ABC"}) -- ab.users.find({firstName:"Mohan"})
-
-\*\*if you want to get someOne changes to github you will write git pull <remote  name> <branch name>
-
-if you are pulling changes into your main branch,you will always write
-    git pull origin main
-
-
- if you are already on your current brach and it is properly linked (tracked to github),you can usually just type a shortcut - git pull 
-
-if you are already on your github 
 
 # Procedure
 

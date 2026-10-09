@@ -23,7 +23,7 @@ authRouter.post("/signup", async (req, res) => {
   });
   try {
     await user.save();
-    res.send("User added successfully");
+    res.status(201).json({message:"user added successfully"})
   } catch (err) {
     res.status(400).send("ERROR :" + err.message);
   }
@@ -35,6 +35,10 @@ authRouter.post("/login", async (req, res) => {
     const { emailId, password } = req.body;
 
     const user = await User.findOne({ emailId: emailId });
+
+    if(!emailId || !password){
+      return res.status(400).json({message:"emailId and password are required"})
+    }
 
     if (!user) {
       throw new Error("Invalid Credentials");

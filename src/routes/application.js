@@ -5,7 +5,7 @@ import { validateEditData } from "../utils/validation.js";
 
 const applicationRouter = express.Router();
 
-applicationRouter.post("/application", userAuth, async (req, res) => {
+applicationRouter.post("/applications", userAuth, async (req, res) => {
   try {
     const userId = req.user._id;
     const { companyName, jobTitle } = req.body;
@@ -29,7 +29,7 @@ applicationRouter.post("/application", userAuth, async (req, res) => {
   }
 });
 
-applicationRouter.get("/getApplication",userAuth, async (req, res) => {
+applicationRouter.get("/applications",userAuth, async (req, res) => {
   try {
     const userId = req.user._id;
     if(!userId){
@@ -60,7 +60,7 @@ applicationRouter.get("/getAllapplication", userAuth, async (req, res) => {
   }
 });
 
-applicationRouter.patch("/updateApplication/:id",userAuth,async(req,res)=>{
+applicationRouter.patch("/applications/:id",userAuth,async(req,res)=>{
   try{
     if(!validateEditData(req)){
       throw new Error("Application can not be updated")
@@ -90,7 +90,7 @@ applicationRouter.patch("/updateApplication/:id",userAuth,async(req,res)=>{
 })
 
 
-applicationRouter.delete("/deleteApplication/:id",userAuth,async(req,res)=>{
+applicationRouter.delete("/applications/:id",userAuth,async(req,res)=>{
   try{
     const loggedInUserId= req.user._id;
     const applicationId=req.params.id;

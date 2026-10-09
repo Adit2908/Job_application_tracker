@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import authRouter from "./routes/auth.js";
 import applicationRouter from "./routes/application.js"
 import dashboardRouter from "./routes/dashboard.js";
+import taskRouter from "./routes/tasks.js";
 const app = express();
 
 const port = 1027;
@@ -13,6 +14,7 @@ app.use(cookieParser());
 app.use("/",authRouter);
 app.use("/",applicationRouter)
 app.use("/",dashboardRouter)
+app.use("/",taskRouter)
 
 
 
