@@ -132,5 +132,7 @@ Tasks / Reminders
 
     - create a taskSchema to add tasks in jobtraker application which will contain userId,title,description,dueDate and completed date
 
+    - created a task post api and task get api
+
 
  

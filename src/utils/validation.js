@@ -25,4 +25,11 @@ const validateEditData=(req)=>{
   
 }
 
-export {validateSignUpData,validateEditData};
+const validateTaskData=(req)=>{
+  const allowedTask=["title","description","dueDate","completed"];
+  const istaskEditAllowed= Object.keys(req.body).every((field)=>allowedTask.includes(field))
+  
+  return istaskEditAllowed
+}
+
+export {validateSignUpData,validateEditData,validateTaskData};

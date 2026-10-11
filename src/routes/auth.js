@@ -41,7 +41,9 @@ authRouter.post("/login", async (req, res) => {
     }
 
     if (!user) {
-      throw new Error("Invalid Credentials");
+        return res.status(401).json({
+        message: "Invalid Credentials",
+      });
     }
 
     const isPasswordValid = await user.validatePassword(password)
@@ -61,7 +63,7 @@ authRouter.post("/login", async (req, res) => {
       throw new Error("Invalid credentials");
     }
   } catch (err) {
-    res.status(400).send("Err:" + err.message);
+    res.status(500).send("Err:" + err.message);
   }
 });
 
@@ -75,7 +77,7 @@ authRouter.get("/me", userAuth, async (req, res) => {
     const user = await req.user;
     res.send(user);
   } catch (err) {
-    res.status(400).send("ERROR:" + err.message);
+    res.status(500).send("ERROR:" + err.message);
   }
 });
 

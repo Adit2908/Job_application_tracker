@@ -85,7 +85,7 @@ dashboardRouter.get("/analytics", userAuth, async (req, res) => {
     ]);
     res.status(200).send(analytics);
   } catch (err) {
-    res.status(400).send("ERROR : " + err.message);
+    res.status(500).send("ERROR : " + err.message);
   }
 });
 
