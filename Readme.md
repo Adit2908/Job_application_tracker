@@ -134,5 +134,7 @@ Tasks / Reminders
 
     - created a task post api and task get api
 
+    - Added CORS  package to avoid cors error
+
 
  

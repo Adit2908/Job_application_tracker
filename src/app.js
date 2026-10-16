@@ -6,6 +6,15 @@ import applicationRouter from "./routes/application.js"
 import dashboardRouter from "./routes/dashboard.js";
 import taskRouter from "./routes/tasks.js";
 const app = express();
+import cors from "cors"
+
+app.use(cors({
+origin:" http://localhost:5173",
+credentials:true
+}
+));
+
+
 
 const port = 1027;
 app.use(express.json());
